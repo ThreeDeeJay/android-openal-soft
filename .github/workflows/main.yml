@@ -45,7 +45,8 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: "${{github.event.repository.name}}_r${{env.CommitCount}}@${{env.CommitHashShort}}"
-        path: "${{github.workspace}}/${{env.Artifacts}}/"
+        path: "${{github.workspace}}/"
+#        path: "${{github.workspace}}/${{env.Artifacts}}/"
 
     - name: Compress artifacts
       uses: vimtor/action-zip@v1.1
