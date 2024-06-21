@@ -1,10 +1,7 @@
 name: Build
 
 env:
-  Solution: .
-  Platform: #Any CPU|Win32|x64
-  Configuration: Release
-  Artifacts: build/$Configuration
+  Artifacts: obj/local
   Branch: $env:GITHUB_REF_NAME
   
 on:
@@ -45,8 +42,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: "${{github.event.repository.name}}_r${{env.CommitCount}}@${{env.CommitHashShort}}"
-        path: "${{github.workspace}}/"
-#        path: "${{github.workspace}}/${{env.Artifacts}}/"
+        path: "${{github.workspace}}/${{env.Artifacts}}/"
 
     - name: Compress artifacts
       uses: vimtor/action-zip@v1.1
